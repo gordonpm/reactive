@@ -9,7 +9,8 @@ public class MonoEmptyOrError {
                 .subscribe(
                         Util.onNext(),
                         Util.onError(),
-                        Util.onComplete());
+                        Util.onComplete()
+                );
     }
 
     private static Mono<String> userRepository(int userId) {
