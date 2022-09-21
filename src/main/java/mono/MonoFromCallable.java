@@ -1,6 +1,6 @@
 package mono;
 
-import mono.utils.Util;
+import utils.Util;
 import reactor.core.publisher.Mono;
 
 import java.util.concurrent.Callable;
