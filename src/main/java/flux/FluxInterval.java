@@ -4,7 +4,6 @@ import reactor.core.publisher.Flux;
 import utils.Util;
 
 import java.time.Duration;
-import java.util.concurrent.CountDownLatch;
 
 public class FluxInterval {
     public static void main(String[] args) {
