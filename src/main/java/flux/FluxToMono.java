@@ -10,6 +10,5 @@ public class FluxToMono {
                 .next()
                 .log()
                 .subscribe(Util.onNext());
-
     }
 }

@@ -12,5 +12,15 @@ public class FluxCreate {
                     fluxSink.complete();
                 })
                 .subscribe(Util.subscriber());
+
+        Flux.create(fluxSink -> {
+                    String country;
+                    do {
+                        country = Util.faker().country().name();
+                        fluxSink.next(country);
+                    } while (!country.equalsIgnoreCase("Iceland"));
+                    fluxSink.complete();
+                })
+                .subscribe(Util.subscriber());
     }
 }
