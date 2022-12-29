@@ -24,9 +24,10 @@ public class FluxDoHooks {
                 .doOnError(err -> System.out.println("doOnError: " + err.getMessage()))
                 .doOnTerminate(() -> System.out.println("doOnTerminate"))
                 .doOnCancel(() -> System.out.println("doOnCancel"))
-                .doFinally(signalType -> System.out.println("doFinally: " + signalType))
+                .doFinally(signalType -> System.out.println("doFinally 1: " + signalType))
                 .doOnDiscard(Object.class, o -> System.out.println("doOnDiscard: " + o))
                 //.take(2) // onDiscard example
+                //.doFinally(signalType -> System.out.println("doFinally 2: " + signalType))
                 .subscribe(Util.subscriber());
     }
 }
