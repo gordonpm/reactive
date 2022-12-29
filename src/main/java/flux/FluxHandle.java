@@ -10,12 +10,10 @@ public class FluxHandle {
                 .handle((integer, synchronousSink) -> {
                     if (integer == 7) {
                         synchronousSink.complete();
-                    }
-                    else {
+                    } else {
                         synchronousSink.next(integer);
                     }
                 })
                 .subscribe(Util.subscriber());
     }
-
 }
