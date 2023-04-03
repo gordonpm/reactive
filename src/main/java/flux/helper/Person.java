@@ -1,4 +1,4 @@
-package flux;
+package flux.helper;
 
 import lombok.Data;
 import lombok.ToString;
