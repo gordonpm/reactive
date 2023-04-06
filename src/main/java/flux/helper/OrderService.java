@@ -1,7 +1,9 @@
 package flux.helper;
 
 import reactor.core.publisher.Flux;
+import reactor.core.publisher.FluxSink;
 
+import java.time.Duration;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -26,9 +28,10 @@ public class OrderService {
     }
 
     public static Flux<PurchaseOrder> getOrders(int userId) {
-        return Flux.create(purchaseOrderFluxSink -> {
+        return Flux.create((FluxSink<PurchaseOrder> purchaseOrderFluxSink) -> {
             db.get(userId).forEach(purchaseOrderFluxSink::next);
             purchaseOrderFluxSink.complete();
-        });
+        })
+                .delayElements(Duration.ofSeconds(1));
     }
 }
