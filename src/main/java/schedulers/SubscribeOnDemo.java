@@ -11,6 +11,7 @@ public class SubscribeOnDemo {
                     printThreadName("create");
                     fluxSink.next(1);
                 })
+                .subscribeOn(Schedulers.newParallel("ironman"))
                 .doOnNext(i -> printThreadName("next " + i));
 
         Runnable runnable = () -> flux
